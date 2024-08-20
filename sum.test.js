@@ -1,4 +1,4 @@
-const { sum, klonas, amzius, string, isPalindrome } = require("./sum");
+const { sum, klonas, amzius, string, isPalindrome, isAnagram } = require("./sum");
 
 describe("Sum tests", () => {
     test("adds 1 + 1 to equal 2", () => {
@@ -42,6 +42,16 @@ describe('String tests', () => {
 
 describe('isPalindrome tests', () => {
     test('text is palindrome', () => {
-        expect(isPalindrome('level')).toBe('level');
+        expect(isPalindrome('level')).toBe(true);
+    });
+
+    test('number is palindrome', () => {
+        expect(isPalindrome('13531')).toBe(true);
+    });
+});
+
+describe('isAnagram tests', () => {
+    test('is word anagram', () => {
+        expect(isAnagram('buckethead', 'deathcubek')).toBe(true);
     });
 });

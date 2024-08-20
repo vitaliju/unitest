@@ -12,13 +12,21 @@ function amzius(x) {
     }
     return x * 365;
 }
+
 function string(text) {
     return text.split('').reverse().join('');
 }
+
 function isPalindrome(string) {
     if (string.split('').reverse().join('') === string) {
-        return string;
+        return true;
     }
+}
+
+function isAnagram(word, original) {
+    if (word.split('').sort().join('') ===
+        original.split('').sort().join(''));
+    return true;
 }
 
 module.exports = {
@@ -26,5 +34,6 @@ module.exports = {
     klonas,
     amzius,
     string,
-    isPalindrome
+    isPalindrome,
+    isAnagram
 };
