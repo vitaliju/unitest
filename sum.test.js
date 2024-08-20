@@ -45,13 +45,27 @@ describe('isPalindrome tests', () => {
         expect(isPalindrome('level')).toBe(true);
     });
 
+    test('text is not palindrome return an error', () => {
+        const fun = () => {
+            isPalindrome('apple');
+        };
+        expect(fun).toThrow();
+    });
+
     test('number is palindrome', () => {
         expect(isPalindrome('13531')).toBe(true);
     });
 });
 
 describe('isAnagram tests', () => {
-    test('is word anagram', () => {
+    test('is word anagram of original', () => {
         expect(isAnagram('buckethead', 'deathcubek')).toBe(true);
     });
+    test('word not anagram should return an error', () => {
+        const fun = () => {
+            isAnagram('bumble', 'dumble');
+        };
+        expect(fun).toThrow();
+    });
+
 });

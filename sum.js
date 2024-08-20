@@ -20,13 +20,19 @@ function string(text) {
 function isPalindrome(string) {
     if (string.split('').reverse().join('') === string) {
         return true;
+    } else {
+        throw Error();
     }
 }
 
 function isAnagram(word, original) {
     if (word.split('').sort().join('') ===
-        original.split('').sort().join(''));
-    return true;
+        original.split('').sort().join('')) {
+        return true;
+    } else {
+        throw Error();
+    }
+
 }
 
 module.exports = {
