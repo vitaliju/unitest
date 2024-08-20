@@ -41,11 +41,11 @@ describe('String tests', () => {
 });
 
 describe('isPalindrome tests', () => {
-    test('text is palindrome', () => {
+    test('text reverse is equal to original', () => {
         expect(isPalindrome('level')).toBe(true);
     });
 
-    test('text is not palindrome return an error', () => {
+    test('text reverse is not equal original return an error', () => {
         const fun = () => {
             isPalindrome('apple');
         };
