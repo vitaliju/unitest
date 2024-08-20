@@ -1,4 +1,4 @@
-const { sum, klonas, amzius, string, isPalindrome, isAnagram } = require("./sum");
+const { sum, klonas, amzius, string, isPalindrome, isAnagram, factorialize } = require("./sum");
 
 describe("Sum tests", () => {
     test("adds 1 + 1 to equal 2", () => {
@@ -68,4 +68,10 @@ describe('isAnagram tests', () => {
         expect(fun).toThrow();
     });
 
+});
+
+describe('factorialize tests', () => {
+    test('count factorial of number', () => {
+        expect(factorialize(5)).toBe(120);
+    });
 });
