@@ -36,11 +36,8 @@ function isAnagram(word, original) {
 
 function factorialize(n) {
     if (n < 0) throw Error();
-    if (n === 0) {
-        return 1;
-    } else {
-        return (n * factorialize(n - 1));
-    }
+    if (n === 0 || n === 1) return 1;
+    return (n * factorialize(n - 1));
 }
 
 function fibonacci(n) {
@@ -48,6 +45,14 @@ function fibonacci(n) {
         return n;
     }
     return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+function isPrime(x) {
+    if (x === 1) return false;
+    for (let i = 2; i <= Math.floor(x / 2); i++) {
+        if (x % i === 0) return false;
+    }
+    return true;
 }
 
 module.exports = {
@@ -58,5 +63,6 @@ module.exports = {
     isPalindrome,
     isAnagram,
     factorialize,
-    fibonacci
+    fibonacci,
+    isPrime,
 };

@@ -5,7 +5,8 @@ const { sum,
     isPalindrome,
     isAnagram,
     factorialize,
-    fibonacci } = require("./sum");
+    fibonacci,
+    isPrime } = require("./sum");
 
 describe("Sum tests", () => {
     test("adds 1 + 1 to equal 2", () => {
@@ -53,7 +54,7 @@ describe('isPalindrome tests', () => {
     test('level is a palindrome', () => {
         expect(isPalindrome('level')).toBeTruthy();
     });
-    test('apple is a palindrome', () => {
+    test('apple is not a palindrome', () => {
         expect(isPalindrome('apple')).toBeFalsy();
     });
     test('13531 is palindrome', () => {
@@ -65,13 +66,13 @@ describe('isAnagram tests', () => {
     test('buckethead is anagram of deathcubek', () => {
         expect(isAnagram('buckethead', 'deathcubek')).toBeTruthy();
     });
-    test('dumble is anagram of bumble', () => {
+    test('dumble is not anagram of bumble', () => {
         expect(isAnagram('dumble', 'bumble')).toBeFalsy();
     });
-    test('"" is anagram of bumble', () => {
+    test('"" is not anagram of bumble', () => {
         expect(isAnagram('', 'bumble')).toBeFalsy();
     });
-    test('"" is anagram of ""', () => {
+    test('two empty strings are anagram', () => {
         expect(isAnagram('', '')).toBeTruthy();
     });
 
@@ -86,5 +87,23 @@ describe('factorialize tests', () => {
 describe('fibonacci tests', () => {
     test('n of 10 should return 55', () => {
         expect(fibonacci(10)).toBe(55);
+    });
+});
+
+describe('isPrime tests', () => {
+    test('1 is prime number', () => {
+        expect(isPrime(1)).toBeFalsy();
+    });
+    test('2 is prime number', () => {
+        expect(isPrime(2)).toBeTruthy();
+    });
+    test('8 is not prime number', () => {
+        expect(isPrime(8)).toBeFalsy();
+    });
+    test('31 is prime number', () => {
+        expect(isPrime(31)).toBeTruthy();
+    });
+    test('403 is not prime number', () => {
+        expect(isPrime(403)).toBeFalsy();
     });
 });
