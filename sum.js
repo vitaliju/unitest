@@ -14,6 +14,9 @@ function amzius(x) {
 }
 
 function string(text) {
+    if (text === null) {
+        throw Error('Text is null');
+    }
     return text.split('').reverse().join('');
 }
 
@@ -21,28 +24,30 @@ function isPalindrome(string) {
     if (string.split('').reverse().join('') === string) {
         return true;
     } else {
-        throw Error();
+        return false;
     }
 }
 
 function isAnagram(word, original) {
-    if (word.split('').sort().join('') ===
-        original.split('').sort().join('')) {
-        return true;
-    } else {
-        throw Error();
-    }
-
+    if (word.length !== original.length) return false;
+    return word.split('').sort().join('') ===
+        original.split('').sort().join('');
 }
 
-function factorialize(num) {
-    if (num < 0) {
-        return -1;
-    } else if (num === 0) {
+function factorialize(n) {
+    if (n < 0) throw Error();
+    if (n === 0) {
         return 1;
     } else {
-        return (num * factorialize(num - 1));
+        return (n * factorialize(n - 1));
     }
+}
+
+function fibonacci(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 module.exports = {
@@ -52,5 +57,6 @@ module.exports = {
     string,
     isPalindrome,
     isAnagram,
-    factorialize
+    factorialize,
+    fibonacci
 };
