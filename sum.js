@@ -21,11 +21,9 @@ function string(text) {
 }
 
 function isPalindrome(string) {
-    if (string.split('').reverse().join('') === string) {
-        return true;
-    } else {
-        return false;
-    }
+    if (string === null) return false;
+    return string.split('').reverse().join('') === string;
+
 }
 
 function isAnagram(word, original) {
@@ -34,16 +32,14 @@ function isAnagram(word, original) {
         original.split('').sort().join('');
 }
 
-function factorialize(n) {
-    if (n < 0) throw Error();
+function factorial(n) {
+    if (n < 0) throw Error("can't calculate negative factorial");
     if (n === 0 || n === 1) return 1;
-    return (n * factorialize(n - 1));
+    return (n * factorial(n - 1));
 }
 
 function fibonacci(n) {
-    if (n < 2) {
-        return n;
-    }
+    if (n === 0 || n === 1) return n;
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
@@ -62,7 +58,7 @@ module.exports = {
     string,
     isPalindrome,
     isAnagram,
-    factorialize,
+    factorial,
     fibonacci,
     isPrime,
 };

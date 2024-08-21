@@ -4,7 +4,7 @@ const { sum,
     string,
     isPalindrome,
     isAnagram,
-    factorialize,
+    factorial,
     fibonacci,
     isPrime } = require("./sum");
 
@@ -43,6 +43,9 @@ describe('String tests', () => {
     test('Labas reverse to equal sabaL', () => {
         expect(string('Labas')).toBe('sabaL');
     });
+    test('empty string should return an empty string', () => {
+        expect(string('')).toBe('');
+    });
     test('null string should throw an Error', () => {
         expect(() => {
             string(null);
@@ -60,6 +63,10 @@ describe('isPalindrome tests', () => {
     test('13531 is palindrome', () => {
         expect(isPalindrome('13531')).toBeTruthy();
     });
+    test('null string is not palindrome', () => {
+        expect(isPalindrome(null)).toBeFalsy();
+    });
+
 });
 
 describe('isAnagram tests', () => {
@@ -78,15 +85,43 @@ describe('isAnagram tests', () => {
 
 });
 
-describe('factorialize tests', () => {
-    test('count factorial of number', () => {
-        expect(factorialize(5)).toBe(120);
+describe('factorial tests', () => {
+    test('factorial of 5 should be 120', () => {
+        expect(factorial(5)).toBe(120);
+    });
+    test('factorial of 0 should be 1', () => {
+        expect(factorial(0)).toBe(1);
+    });
+    test('factorial of 1 should be 1', () => {
+        expect(factorial(1)).toBe(1);
+    });
+    test('factorial of 2 should be 2', () => {
+        expect(factorial(2)).toBe(2);
+    });
+    test('factorial of 10 should be 3.628.800', () => {
+        expect(factorial(10)).toBe(3_628_800);
+    });
+    test('negative factorial should throw an Error', () => {
+        expect(() => {
+            factorial(-1);
+        }).toThrow();
     });
 });
 
 describe('fibonacci tests', () => {
     test('n of 10 should return 55', () => {
         expect(fibonacci(10)).toBe(55);
+    });
+    test('n of 1 should return 1', () => {
+        expect(fibonacci(1)).toBe(1);
+    });
+    test('n of 3 should return 2', () => {
+        expect(fibonacci(3)).toBe(2);
+    });
+    test('n of -1 should throw an Error', () => {
+        expect(() => {
+            fibanocci(-1);
+        }).toThrow();
     });
 });
 
